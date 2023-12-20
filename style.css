@@ -5,7 +5,7 @@ body {
     box-sizing: border-box;
 }
 
-header, nav, section, footer {
+header, section, footer {
     margin: 20px;
     padding: 20px;
 }
@@ -14,26 +14,6 @@ header {
     background-color: #333;
     color: #fff;
     text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #ddd;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #555;
 }
 
 section {
@@ -49,5 +29,15 @@ footer {
 }
 
 .rounded-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 30px;
     background-color: #4CAF50; /* Green */
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-button:hover {
+    background-color: #45a049; /* Darker Green */
 }
