@@ -13,16 +13,22 @@
                     .then(data => {
                         const computerName = data.computerName;
                         const ipAddress = data.ip;
+                        const CreationDate = data.createdAt;
+                        const UpdatedDate = data.updatedAt;
                         const computerStatus = data.computerStatus;
+                        const ServiceStatus = data.inService;
                         const inSession = data.inSession;
-                        const sessionId = data._id; // Use _id as the session ID
+                        const sessionId = data._id;
 
                         const detailsElement = document.getElementById(containerId);
                         detailsElement.innerHTML = `
                          <p>Computer Name: ${computerName}<br>
+                         Last update at: ${UpdatedDate}<br>
+                         Date of creation: ${CreationDate} <br>
                          Session Id: ${sessionId} <br>
-                         OS: Windows 10 <br>
                          IP Address: ${ipAddress}<br>
+                         OS: Windows 10 <br>
+                         In Service: ${ServiceStatus} <br>
                          Computer Status: ${computerStatus}<br>
                          In Session: ${inSession}</p>
                         `;
