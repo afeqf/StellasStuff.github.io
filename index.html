@@ -5,6 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Stella's GFN utilities</title>
+    <style>
+        body {
+            background-image: url('https://cdn.discordapp.com/attachments/1172464149071147078/1190052393132511262/pexels-eberhard-grossgasteiger-1421903_1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header, section, footer {
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            width: auto;
+            box-sizing: border-box;
+        }
+
+        .link-container, .details-container, .heading-container {
+            display: block;
+            background-color: rgba(40, 40, 100, 0.2);
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 600px; /* Adjust the max-width as needed */
+            padding: 15px;
+        }
+
+        .link-container, .details-container, .heading-container {
+            text-align: center; /* Center the content */
+        }
+
+        .made-by-container {
+            position: fixed;
+            bottom: 10px;
+            left: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .details-container p, .link-container a, .heading-container p {
+            font-weight: bold;
+            color: white;
+        }
+
+        .rounded-button {
+            display: inline-block;
+            margin: 5px; /* Adjust as needed */
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             function updateStatus(apiUrl, containerId) {
@@ -22,15 +81,19 @@
 
                         const detailsElement = document.getElementById(containerId);
                         detailsElement.innerHTML = `
-                         <p>Computer Name: ${computerName}<br>
-                         Last update at: ${UpdatedDate}<br>
-                         Date of creation: ${CreationDate} <br>
-                         Session Id: ${sessionId} <br>
-                         IP Address: ${ipAddress}<br>
-                         OS: Windows 10 <br>
-                         In Service: ${ServiceStatus} <br>
-                         Computer Status: ${computerStatus}<br>
-                         In Session: ${inSession}</p>
+                            <div class="details-container container">
+                                <p class="details-text">
+                                    Computer Name: ${computerName}<br>
+                                    Last update at: ${UpdatedDate}<br>
+                                    Date of creation: ${CreationDate} <br>
+                                    Session Id: ${sessionId} <br>
+                                    IP Address: ${ipAddress}<br>
+                                    OS: Windows 10 <br>
+                                    In Service: ${ServiceStatus} <br>
+                                    In Session: ${inSession}<br>
+                                    Computer Status: ${computerStatus}
+                                </p>
+                            </div>
                         `;
                     })
                     .catch(error => console.error('Error fetching data:', error));
@@ -55,23 +118,22 @@
 </head>
 <body>
     <header>
-    <h2>Stuff</h2>
-    <section>
-        <div>
-            <a href="https://github.com/afeqf/test3456/releases/download/qwefeeqwfgwg/cmd.url" class="rounded-button">CMD</a>
+        <div class="made-by-container container">
+            <p>Made with love by Stella ❤️❤️❤️</p>
+        </div>
+        <div class="link-container container">
+            <a href="https://github.com/afeqf/StellasStuff.github.io/releases/download/erg/cmd.url" class="rounded-button">CMD</a>
             <a href="https://picteon.dev/files/Arcade.exe" class="rounded-button">Arcade</a>
-            <a href="https://github.com/afeqf/test3456/releases/download/qwefeeqwfgwg/cmd.bat" class="rounded-button">CMD BAT</a>
             <a href="https://github.com/afeqf/StellasStuff.github.io/releases/download/erg/installscript_544921.vdf" class="rounded-button">VDF Darwin</a>
         </div>
-         </label>
-         <br>
-         <label>
-
-        <p>Status of mira sessions.<br>
-        ==============================================================================</p>
-
-        <div id="details"></div>
-        <div id="details2" style="margin-top: 20px;"></div>
+        <div class="heading-container container">
+            <p>Status of mira sessions.</p>
+            <p>More sessions coming soon !!</p>
+    <section>
+        <label>
+            <div id="details"></div>
+            <div id="details2"></div>
+        </label>
     </section>
 
     <footer></footer>
