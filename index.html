@@ -7,32 +7,37 @@
     <title>Stella's GFN utilities</title>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            function updateStatus() {
-                fetch('https://api.miraplay.cloud/computers/6529357139c1de11a4d0fca2')
+            function updateStatus(apiUrl, containerId) {
+                fetch(apiUrl)
                     .then(response => response.json())
                     .then(data => {
                         const computerName = data.computerName;
                         const ipAddress = data.ip;
                         const computerStatus = data.computerStatus;
                         const inSession = data.inSession;
+                        const sessionId = data._id; // Use _id as the session ID
 
-                        const detailsElement = document.getElementById('details');
+                        const detailsElement = document.getElementById(containerId);
                         detailsElement.innerHTML = `
                          <p>Computer Name: ${computerName}<br>
-                         Session Id: 6529357139c1de11a4d0fca2 <br>
+                         Session Id: ${sessionId} <br>
                          OS: Windows 10 <br>
                          IP Address: ${ipAddress}<br>
                          Computer Status: ${computerStatus}<br>
                          In Session: ${inSession}</p>
-
-
                         `;
                     })
                     .catch(error => console.error('Error fetching data:', error));
             }
-            updateStatus();
 
-            setInterval(updateStatus, 1);
+            function updateAllStatus() {
+                updateStatus('https://api.miraplay.cloud/computers/6529357139c1de11a4d0fca2', 'details');
+                updateStatus('https://api.miraplay.cloud/computers/6529352939c1de11a4d0fc90', 'details2');
+            }
+
+            updateAllStatus();
+
+            setInterval(updateAllStatus, 1000);
 
             const seeStatusButton = document.getElementById('seeStatusButton');
             seeStatusButton.addEventListener('click', function () {
@@ -60,6 +65,7 @@
         ==============================================================================</p>
 
         <div id="details"></div>
+        <div id="details2" style="margin-top: 20px;"></div>
     </section>
 
     <footer></footer>
